@@ -24,7 +24,22 @@ var romanToInt = function (s) {
         answer += 1000;
     }
   }
+
+  if (s.includes("IV")) {
+    answer -= s.match(/IV/g).length * 1;
+  } else if (s.includes("IX")) {
+    answer -= s.match(/IX/g).length * 2;
+  } else if (s.includes("XL")) {
+    answer -= s.match(/XL/g).length * 10;
+  } else if (s.includes("XC")) {
+    answer -= s.match(/XC/g).length * 20;
+  } else if (s.includes("CD")) {
+    answer -= s.match(/CD/g).length * 100;
+  } else if (s.includes("CM")) {
+    answer -= s.match(/CM/g).length * 200;
+  }
+
   console.log(answer);
 };
 
-romanToInt("LVIII");
+romanToInt("MCMXCIV");
